@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Card </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #23304f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #202A44;
+            border-radius: 10px;
+            color: white;  
+            width: 300px;
+            overflow: hidden;
+            padding: 20px;
+      }
+      a {
+        text-decoration: none;
+
+      }
+    h3{
+        margin: 10px 0;
+        font-size: 1.5em;
+        font-weight: 500;
+    }
+
+    p {
+        color: grey;
+    }
+
+    .btns {
+        margin: 10px;
+    }
+
+    .btns button {
+        border-radius: 50%;
+        padding: 10px;
+        height: 30px;
+        width: 30px;
+        background-color: #171734;
+        border: none;
+        color: white;
+
+        cursor: pointer;
+    }
+
+    button[type="submit"] {
+        background-color: white;
+        border-radius: 30px;
+        padding: 10px;
+        text-transform: uppercase;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover{
+        color: #0b0b4e;
+        background-color: orange;
+    }
+
+    .btns button:focus {
+        background-color: white;
+        color: #0b0b4e;
+    }
+    .btns button.active {
+        background-color: white;
+        color: #0b0b4e;
+    }
+
+    </style>
+</head>
+<body>
+        <div class="container">
+
+            <div class="star-icon">
+                <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m9.067.43 1.99 4.031c.112.228.33.386.58.422l4.45.647a.772.772 0 0 1 .427 1.316l-3.22 3.138a.773.773 0 0 0-.222.683l.76 4.431a.772.772 0 0 1-1.119.814l-3.98-2.092a.773.773 0 0 0-.718 0l-3.98 2.092a.772.772 0 0 1-1.119-.814l.76-4.431a.773.773 0 0 0-.222-.683L.233 6.646a.772.772 0 0 1 .427-1.316l4.45-.647a.772.772 0 0 0 .58-.422L7.68.43a.774.774 0 0 1 1.387 0Z" fill="#FC7614"/>
+                </svg>
+              </div>
+            
+            <h3>How did we do?</h3>
+            <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+            <div class="btns">
+                <button value="1" class="btns-choice">1</button>
+                <button value="2" class="btns-choice">2</button>
+                <button value="3"  class="btns-choice">3</button>
+                <button value="4" class="btns-choice">4</button>
+                <button value="5" class="btns-choice">5</button>
+            </div>
+            <button type="submit" class="submit">Submit</button>
+        </div>
+    
+        <script>
+            const allbuttons = document.querySelectorAll(".btns-choice");
+            const submit = document.querySelector(".submit")
+
+            var selected = null
+
+            allbuttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    //remove first all active from all others
+                    allbuttons.forEach(but => { but.classList.remove("active")})
+                    //now add active
+                    button.classList.add("active")
+                })
+            })
+
+            submit.addEventListener("click", () => {
+               const activebtn= document.querySelector(".btns-choice.active")
+                var num= activebtn.textContent
+               alert(`Thank you for giving us a rating of ${num}`)
+            })
+                
+            
+        </script>
+</body>
+
+</html>
